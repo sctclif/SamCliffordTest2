@@ -5,7 +5,7 @@ Encapsulation : 10
 Well-implemented encapsulation.
 
 Polymorphism : 0
-Polymorphism is not utilized for drawing
+Polymorphism is not utilized for drawing. Polymorphism can be used to draw all of the map objects, without having to know which specific object they are, by using subtype polymorphism. If Keeper, Lion, Drone inherit from a superclass, their object references can be added to an ArrayList of that superclass. If the superclass has an abstract method 'draw' which is overriden in the subclasses, then calling 'draw' on the superclass will call the specific 'draw' in the subclass. A loop can then iterate through the ArrayList calling 'draw' on each element, without having to know if they are Drone, Keeper or Lion.
 
 Exceptions and Error handling : 3
 The LocationSystem.getCoords() function logs exceptions but does not handle them or stop execution. In MapCanvas.java, getCoords() is called in updateLionLoc, updateKeeperLoc, and updateDroneLoc without null checks.
