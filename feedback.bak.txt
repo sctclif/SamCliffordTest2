@@ -1,0 +1,23 @@
+Classes	and Inheritance	: 7
+Good base for inheritance, but drawing logic and GPS updates could be centralised
+
+Encapsulation : 10
+Well-implemented encapsulation.
+
+Polymorphism : 0
+Polymorphism is not utilized for drawing. Polymorphism can be used to draw all of the map objects, without having to know which specific object they are, by using subtype polymorphism. If Keeper, Lion, Drone inherit from a superclass, their object references can be added to an ArrayList of that superclass. If the superclass has an abstract method 'draw' which is overriden in the subclasses, then calling 'draw' on the superclass will call the specific 'draw' in the subclass. A loop can then iterate through the ArrayList calling 'draw' on each element, without having to know if they are Drone, Keeper or Lion.
+
+Exceptions and Error handling : 3
+The LocationSystem.getCoords() function logs exceptions but does not handle them or stop execution. In MapCanvas.java, getCoords() is called in updateLionLoc, updateKeeperLoc, and updateDroneLoc without null checks.
+
+Organization : 10
+Great organization utilising meaningful packages (UI, ZooDatabase, OutsideClasses).
+
+Attempt : 6
+Good attempt but not fully functional
+
+Flexibility for Future : 10
+Good use of ArrayList for keepers, lions, and drones and ready for more entities
+
+Alerts : 5
+Alerts are defined but not dynamically triggered based on proximity checks.

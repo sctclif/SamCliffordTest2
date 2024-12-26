@@ -1,23 +1,22 @@
-Classes	and Inheritance	: 7
-Good base for inheritance, but drawing logic and GPS updates could be centralised
+Classes	and Inheritance	: Excellent selection of classes and inheritance - the common fields and methods have been put into the superclasses. It's a valid design choice to separate the UI code from the data code for each entity, but depending on the size and complexity of the application these could be in the same class to strengthen encapsulation and abstraction. I would try and find a better name for the UI superclass rather than including the word 'super' in the name, and I would make the draw method in the superclass abstract so that any future subclasses are forced to provide their own concrete implementation. I might make 'contactable' 'alertable'. To avoid code duplication, the call to LocationSystem.getCoords() could have been the superclass. 9/10 
 
-Encapsulation : 10
-Well-implemented encapsulation.
+Encapsulation : Mostly good access modifier selection with getters. There are some fields that have no modifier, which defaults to 'package private' which should be private - eg Keeper in KeeperMarker and all ArrayLists. 8/10
 
-Polymorphism : 0
-Polymorphism is not utilized for drawing. Polymorphism can be used to draw all of the map objects, without having to know which specific object they are, by using subtype polymorphism. If Keeper, Lion, Drone inherit from a superclass, their object references can be added to an ArrayList of that superclass. If the superclass has an abstract method 'draw' which is overriden in the subclasses, then calling 'draw' on the superclass will call the specific 'draw' in the subclass. A loop can then iterate through the ArrayList calling 'draw' on each element, without having to know if they are Drone, Keeper or Lion.
 
-Exceptions and Error handling : 3
-The LocationSystem.getCoords() function logs exceptions but does not handle them or stop execution. In MapCanvas.java, getCoords() is called in updateLionLoc, updateKeeperLoc, and updateDroneLoc without null checks.
+Polymorphism : Excellent use of polymorphism in drawing 10/10.
 
-Organization : 10
-Great organization utilising meaningful packages (UI, ZooDatabase, OutsideClasses).
 
-Attempt : 6
-Good attempt but not fully functional
+Exceptions and Error handling : LocationSystem Exception caught but the Exception is passed up to the top level rather than being handled gracefully with an error communicated to the user - ie if it cannot contact the LocationSystem, the program will crash. 3/10
 
-Flexibility for Future : 10
-Good use of ArrayList for keepers, lions, and drones and ready for more entities
 
-Alerts : 5
-Alerts are defined but not dynamically triggered based on proximity checks.
+Organization : Very good use of packages 10/10
+
+
+Attempt : This is a very good attempt that works fully and correctly - excellent! 10/10
+
+
+Flexibility for Future : Good use of ArrayLists would allow adding extra lions etc easily 10/10 
+
+
+Alerts : Implemented 10/10
+
